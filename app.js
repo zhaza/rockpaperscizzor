@@ -5,15 +5,15 @@ let handArray = [
     'paper',
     'scizzor'
 ];
-// set up randomizer function 
+// set up randomizer function selecting from array
 let randomNumber = Math.floor(Math.random()*handArray.length);
 return handArray[randomNumber];
 };
 
 // set score, ready for counting
 let score = 0 ;
-// Play a round of RPS, by asking player to choose. 
-// Pit choices against, and redo round if choice is not one of 3 recognized choices.
+// Play a round of RPS, by asking player to choose. Set choice to lowercase for case-insensitivity
+// Pit choices against, count if won, and redo round if choice is not one of 3 recognized choices.
 function playRound() {
 let p1 = prompt("Rock? Paper? Scissor?").toLowerCase();
 const c1 = computerPlay();
