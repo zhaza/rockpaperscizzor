@@ -10,34 +10,38 @@ let randomNumber = Math.floor(Math.random()*handArray.length);
 return handArray[randomNumber];
 };
 
-function playRound(p1, c1) {
-    let p1 = p1.toLowerCase();
-    if (p1 === c1) {
-        return "TIED!"
-    } else if ( p1 === "rock" || c1 === "paper") {
-        return "You LOSE! Paper beats rock."
-    } else if ( p1 === "paper" || c1 === "scizzor"){
-        return "You LOSE! Scizzor beats paper."
-    } else if ( p1 === "scizzor" || c1 === "rock") {
-        return "You LOSE! Rock beats scizzor."
-    } else {
-        return "YOU WIN!"
-    }
-
-const p1 = prompt("Rock? Paper? Scizzor?");
+// set score, ready for counting
+let score = 0 ;
+// play a round of RPS, by asking player to choose
+function playRound() {
+let p1 = prompt("Rock? Paper? Scissor?").toLowerCase();
 const c1 = computerPlay();
-console.log(playRound(p1, c1));
-};
-
-function game() {
-    return playRound()
-    if (condition) {
-        
+    if (p1 === c1) {
+        return "TIED! Try Again!";
+    } else if ( p1 === "rock" && c1 === "paper") {
+        return "You LOSE! Paper beats rock. Try Again!";
+    } else if ( p1 === "paper" && c1 === "scissor"){
+        return "You LOSE! Scissor beats paper. Try Again!";
+    } else if ( p1 === "scizzor" && c1 === "rock") {
+        return "You LOSE! Rock beats scissor. Try Again!";
+    } else if (p1 === "rock" || p1 === "paper" || p1 === "scissor") {
+        return `YOU WIN! KEEP GOING! Won:${score+=1}`;
     } else {
-        
+        alert(`"${p1}" is not one of the choices. Try that again.`);
+        console.log(playRound());
     }
-    return playRound
-    return playRound
-    return playRound
-    return playRound
-}
+};
+// reset score and set a game, best of 5 rounds
+function game() {
+    score = 0;
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+    if (score >= 3) {
+        console.log(`YAY! Player won ${score} times!`);
+    } else {
+        console.log(`Sorry, computer won. ${5 - score} times`);
+    }
+};
