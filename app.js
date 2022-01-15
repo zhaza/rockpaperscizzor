@@ -12,7 +12,8 @@ return handArray[randomNumber];
 
 // set score, ready for counting
 let score = 0 ;
-// play a round of RPS, by asking player to choose
+// Play a round of RPS, by asking player to choose. 
+// Pit choices against, and redo round if choice is not one of 3 recognized choices.
 function playRound() {
 let p1 = prompt("Rock? Paper? Scissor?").toLowerCase();
 const c1 = computerPlay();
@@ -31,7 +32,7 @@ const c1 = computerPlay();
         console.log(playRound());
     }
 };
-// reset score and set a game, best of 5 rounds
+// reset score and set a game, best of 5 rounds. Show player as winner with score or computer score out of 5.
 function game() {
     score = 0;
     console.log(playRound());
