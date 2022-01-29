@@ -11,12 +11,13 @@ let p1score = 0;
 let c1score = 0;
 // Play a round of RPS, by asking player to choose. Set choice to lowercase for case-insensitivity
 // Pit choices against, count if won, and redo round if choice is not one of 3 recognized choices.
-function playRound(p1) {
+function playRound(playerChoice) {
   // let p1 = prompt("Rock? Paper? Scissor?").toLowerCase();
+  let p1 = playerChoice;
   const c1 = computerPlay();
   if (p1 === c1) {
     return "TIED! Try Again!";
-  } else if (p1 === rock && c1 === "paper") {
+  } else if (p1 === "rock" && c1 === "paper") {
     return "You LOSE! Paper beats rock. Try Again!";
   } else if (p1 === "paper" && c1 === "scissor") {
     return "You LOSE! Scissor beats paper. Try Again!";
@@ -70,7 +71,7 @@ buttons.forEach((button) => {
 
   // and for each one we add a 'click' listener
   button.addEventListener('click', () => {
-    playRound(p1 = button.classList);
+    let playerChoice = button.id;
+    playRound(playerChoice);
   });
 });
-  
