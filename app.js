@@ -1,6 +1,6 @@
 function computerPlay() {
     //  set up array for randomizer function to pick from
-    let handArray = ["rock", "paper", "scizzor"];
+    let handArray = ["rock", "paper", "scissor"];
     // set up randomizer function selecting from array
     let randomNumber = Math.floor(Math.random() * handArray.length);
     return handArray[randomNumber];
@@ -20,7 +20,7 @@ function computerPlay() {
       return "You LOSE! Paper beats rock. Try Again!";
     } else if (p1 === "paper" && c1 === "scissor") {
       return "You LOSE! Scissor beats paper. Try Again!";
-    } else if (p1 === "scizzor" && c1 === "rock") {
+    } else if (p1 === "scissor" && c1 === "rock") {
       return "You LOSE! Rock beats scissor. Try Again!";
     } else if (p1 === "rock" || p1 === "paper" || p1 === "scissor") {
       return "YOU WIN! KEEP GOING!";
